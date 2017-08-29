@@ -1,0 +1,17 @@
+<form action="/user/edit" method="post">
+  
+  <label for="username">Username</label>
+  <input type="text" name="username" value="<%= user.username %>" placeholder="Username" readonly>
+  <br>
+
+  <label for="password">Password</label>
+  <input type="password" name="password" value="" placeholder="Password">
+  <br>
+
+  <label for="name">Name</label>
+  <input type="text" name="name" placeholder="Name" value="<%= user.name %>">
+  <br>
+  
+  <input type="hidden" name="id" value="<%= user.id %>">
+  <input type="submit" value="Edit"><input type="reset" value="Reset">
+</form>

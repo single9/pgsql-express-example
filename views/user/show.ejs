@@ -1,0 +1,8 @@
+<li>
+  <%= user.id %> / <%= user.name %> / <%= user.username %>
+  <form action="/user/delete" method="post">
+    <input type="hidden" name="id" value="<%= user.id %>">
+    <input type="submit" name="delete" value="del">
+  </form>
+  <a href="/user/detail/<%= user.id %>">detail</a>
+</li>

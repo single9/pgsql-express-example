@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <% if (edit) { %> 
+    <%- include('user/edit', user); %>
+  <% } else if (!isLogin){ %>
+
+    <h3>Login</h3>
+    <form action="/user/login" method="post">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" value="Submit">
+    </form>
+
+    <h3>Register</h3>
+    <%- include('user/register'); %>
+
+  <% } else if (isLogin) { %>
+
+    <p>id / name / username</p>
+    <ul>
+      <% users.forEach(function(user){ %>
+        <%- include('user/show', {user: user}); %>
+      <% }); %>
+    </ul>
+
+  <% } %>
+  
+</body>
+</html>

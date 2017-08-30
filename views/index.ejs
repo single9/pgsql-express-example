@@ -10,7 +10,7 @@
 
   <% if (edit) { %> 
     <%- include('user/edit', user); %>
-  <% } else if (!isLogin){ %>
+  <% } else if (!user){ %>
 
     <h3>Login</h3>
     <form action="/user/login" method="post">
@@ -22,7 +22,9 @@
     <h3>Register</h3>
     <%- include('user/register'); %>
 
-  <% } else if (isLogin) { %>
+  <% } else if (user) { %>
+
+    <p>Hi, <%= user.name %>. <a href="/user/logout" id="logout">Logout</a></p>
 
     <p>id / name / username</p>
     <ul>

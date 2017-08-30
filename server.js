@@ -35,13 +35,13 @@ app.use(function SessionMaxAgeMiddleware (req, res, next) {
 app.use(function LocalsMiddleware (req, res, next) {
 
   res.locals.edit = false;
-  res.locals.isLogin = req.session.isLogin || false;
+  res.locals.user = req.session.user || false;
 
   next();
 });
 
-const index = require('./routers/index.js');
-const user = require('./routers/user.js');
+const index = require('./routes/index.js');
+const user = require('./routes/user.js');
 
 app.use('/', index);
 app.use('/user', user);

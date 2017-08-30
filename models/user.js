@@ -11,7 +11,7 @@ class UserModel {
   async login (username, password) {
     password = encryptPassword(password, username);
 
-    const res = await pool.query('SELECT * from ' + dbTable + ' where username = $1 and password = $2', [username, password]);
+    const res = await pool.query('SELECT name, username from ' + dbTable + ' where username = $1 and password = $2', [username, password]);
 
     debug('login %o', res);
 

@@ -47,14 +47,17 @@ class UserController {
     
     try {
       let result = await user.login(username, password);
-      req.session.isLogin = true;
-      res.end('Welcome!');
-      // res.redirect('/');
-      // res.end('Welcome!');
+      req.session.user = result.rows[0];
+      res.redirect('/');
     } catch (e) {
       next(e.detail || e);
     }
   } 
+
+  async logout (req, res, next) {
+    req.session = null;
+    res.redirect('/');
+  }
 
   async delete (req, res, next) {
     let id = req.body.id;

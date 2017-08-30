@@ -1,7 +1,8 @@
 # PostgreSQL + Express.js Example
 
-- PostgreSQL
-- Express.js
+- Node.js v8.x
+- PostgreSQL 9.6
+- Express.js 4.x
 
 ## Initialize
 
